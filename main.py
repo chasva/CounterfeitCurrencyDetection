@@ -1,18 +1,29 @@
-# This is a sample Python script.
+# Import Statements
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Activation, Dense
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.metrics import categorical_crossentropy
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Building Neural Network Using Sequential Model
 
-# Press the green button in the gutter to run the script.
+
+# Creating the Layers to be used in the sequential
+firstlayer = Dense(units=4, input_shape=(1,), activation='relu')
+secondlayer = Dense(units=8, activation='relu')
+outputlayer = Dense(units=2, activation='softmax')
+
+# The outputlayer has only two units, one for counterfeit and the other for real currency.
+
+# Create the Sequential Model Here, put the layers in correct order of left to right
+model = Sequential([firstlayer, secondlayer, outputlayer])
+
+# Check the model is created
+model.summary()
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    print("Beans")
